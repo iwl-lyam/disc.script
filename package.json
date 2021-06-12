@@ -1,0 +1,24 @@
+{
+  "name": "disc.script",
+  "version": "0.0.0",
+  "description": "The all-new Discord API wrapper for JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itwithlyam/disc.script.git"
+  },
+  "keywords": [
+    "discord",
+    "wrapper",
+    "api"
+  ],
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/itwithlyam/disc.script/issues"
+  },
+  "homepage": "https://github.com/itwithlyam/disc.script#readme"
+}
