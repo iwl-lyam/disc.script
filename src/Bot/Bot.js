@@ -5,7 +5,7 @@ class Bot {
         process.env.TOKEN = token
         fetch('https://discord.com/api/v9/gateway')
             .then(response => response.json())
-            .then(data => {});
+            .then(data => process.env.ONLINE = true);
     }
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "disc.script",
-  "version": "0.0.0-dev.0",
+  "version": "0.0.0-dev.1",
   "description": "The all-new Discord API wrapper for JavaScript.",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "api"
   ],
   "author": "",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "GNU",
   "bugs": {
     "url": "https://github.com/itwithlyam/disc.script/issues"
   },
