@@ -1,5 +1,7 @@
-const { Client } = require("./src/Client/Client")
+require('dotenv').config()
+
+const { Bot } = require("./src/Bot/Bot")
 
 module.exports = {
-    Client,
+    Bot,
 }

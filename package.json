@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/itwithlyam/disc.script/issues"
   },
-  "homepage": "https://github.com/itwithlyam/disc.script#readme"
+  "homepage": "https://github.com/itwithlyam/disc.script#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "node-fetch": "^2.6.1"
+  },
+  "type": "commonjs"
 }
