@@ -1,7 +1,7 @@
 require('dotenv').config()
 
-const { Bot } = require("./src/Bot/Bot")
+const { Gateway } = require("./src/Gateway/Gateway")
 
 module.exports = {
-    Bot,
+    Gateway,
 }

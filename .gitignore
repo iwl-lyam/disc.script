@@ -105,3 +105,6 @@ dist
 
 # Dotenv token/secrets
 .env
+
+# Tests
+tests/

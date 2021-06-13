@@ -1,10 +1,10 @@
 {
   "name": "disc.script",
-  "version": "0.0.0-dev.1",
+  "version": "0.0.0-dev.18",
   "description": "The all-new Discord API wrapper for JavaScript.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm publish && cd tests && npm update && node test.js && cd .."
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
   "homepage": "https://github.com/itwithlyam/disc.script#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "ws": "^7.4.6"
   },
   "type": "commonjs"
 }
