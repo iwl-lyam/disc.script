@@ -1,0 +1,14 @@
+{
+    "op2": {
+        "op": 2,
+        "d": {
+          "token": "dododododdoododododododooddoodododododoododododododododododoodododododoododododododododododoo",
+          "intents": 513,
+          "properties": {
+            "$os": "macos",
+            "$browser": "disc.script",
+            "$device": "disc.script"
+          }
+        }
+    }
+}

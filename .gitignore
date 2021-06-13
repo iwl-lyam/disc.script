@@ -106,5 +106,5 @@ dist
 # Dotenv token/secrets
 .env
 
-# Tests
-tests/
+# Test modules
+tests/node_modules/

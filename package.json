@@ -1,10 +1,11 @@
 {
   "name": "disc.script",
-  "version": "0.0.0-dev.18",
+  "version": "0.0.0-dev.28b",
   "description": "The all-new Discord API wrapper for JavaScript.",
   "main": "index.js",
   "scripts": {
-    "test": "npm publish && cd tests && npm update && node test.js && cd .."
+    "test": "npm publish && cd tests && npm update && node test.js && cd ..",
+    "runsuite": "cd tests && npm update && node test.js && cd .."
   },
   "repository": {
     "type": "git",
