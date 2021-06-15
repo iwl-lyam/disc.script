@@ -10,5 +10,14 @@
             "$device": "disc.script"
           }
         }
+    },
+    "messageref": {
+      "content": "Hello, World!",
+      "tts": "beep boop beep boop",
+      "message_reference": "boopbeepboopbeep"
+    },
+    "message": {
+      "content": "Hello, World!",
+      "tts": "beep boop beep boop"
     }
 }

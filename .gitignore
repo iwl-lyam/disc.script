@@ -107,4 +107,4 @@ dist
 .env
 
 # Test modules
-tests/node_modules/
+tests/
