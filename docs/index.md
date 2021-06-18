@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+## Welcome to Disc.Script
 
-You can use the [editor on GitHub](https://github.com/itwithlyam/disc.script/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+### Overview
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**Disc.Script is a new and modern Discord API Wrapper for JavaScript/NodeJS.** It works via the [Discord API](https://discord.dev).
 
-### Markdown
+### Features
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Currently, Disc.Script can connect to the Discord Gateway, Identify via a bot token and send messages in a channel. We are actively working on Reactions, Replies and Receiving messages right now, and will be released soon when they are ready.
 
-```markdown
-Syntax highlighted code block
+### Usage
 
-# Header 1
-## Header 2
-### Header 3
+```javascript
+const Discord = require("disc.script");
+const gateway = new Discord.Gateway();
 
-- Bulleted
-- List
+Discord.Event.on("ready", () => {
+  console.log("ready");
+});
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+gateway.start("token");
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/itwithlyam/disc.script/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Installation: `npm i disc.script`
