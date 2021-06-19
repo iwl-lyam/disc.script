@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "disc.script": "^0.0.1-dev.4"
+    "disc.script": "^0.0.2-2"
   }
 }

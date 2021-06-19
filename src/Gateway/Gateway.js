@@ -2,12 +2,15 @@ const fetch = require("node-fetch")
 const WebSocket = require("ws")
 const { op2 } = require("../payload.json")
 const events = require("events")
+const { Guild } = require("../Util/Components/Guild")
+const { Message } = require("../Util/Components/Message")
 
 const GatewayEvent = new events.EventEmitter()
 
 class Gateway {
     constructor() {
         this._i = false
+        this._guilds = []
     }
     async start(token=process.env.token) {
         try {
@@ -24,11 +27,16 @@ class Gateway {
                             this._i = false
                         }
                         if (response.op === 0) {
+                            console.log(response)
                             if (response.t === "READY") {
                                 process.env.READY = true
                                 GatewayEvent.emit("ready")
                             } else if (response.t === "GUILD_CREATE") {
-                                
+                                this._guilds.push(new Guild(response.d))
+                                GatewayEvent.emit("guildCreate", this._guilds, this._guilds.length)
+                            } else if (response.t === "MESSAGE_CREATE") {
+                                const message = new Message(response.d)
+                                GatewayEvent.emit("message", message)
                             }
                         }
                         if (response.op === 10) {
@@ -45,7 +53,7 @@ class Gateway {
                         }
                         if (response.op === 9) {
                             socket.close()
-                            throw new GatewayTermination()
+                            throw new GatewayTermination("RateLimited")
                         }
                     })
                         
@@ -57,9 +65,9 @@ class Gateway {
 }
 
 class GatewayTermination extends Error {
-    constructor() {
+    constructor(catched) {
         GatewayEvent.emit("GatewayError", "terminated")
-        super("Gateway limits exceded. Connection terminated.")
+        super(catched + ": Gateway limits exceded. Connection terminated.")
     }
 }
 
