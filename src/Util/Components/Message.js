@@ -1,13 +1,11 @@
-const { CreateMessage, MessageError } = require("../Actions/CreateMessage")
+const { MessageError } = require("../Actions/CreateMessage")
 const events = require("events")
+const { default: fetch } = require("node-fetch")
 
 const MessageEvent = new events.EventEmitter()
 
 class Message {
-    constructor(content, cid, tts=false, ref=false, data=null) {
-        if (!content) throw new MessageError("Missing message content")
-        if (!cid) throw new MessageError("Missing message channel")
-        this._message = new CreateMessage(content, cid, tts, ref)
+    constructor(data=null) {
         if (data) {
             this._data = data
             this.type = data.type
@@ -47,14 +45,12 @@ class Message {
             this.guild_id = data.guild_id
         }
     }
-    async send() {
-        try {
-            this._message = await this._message.send()
-            MessageEvent.emit("messageSent")
-            return this._message
-        } catch {
-            throw new MessageError("An error occured during sending message")
-        }
+    async delete() {
+        const request = await fetch(`https://discord.com/api/v9/channels/${this.channel_id}/messages/${this.id}`, {
+            method: "DELETE",
+        })
+        
+        if (!request.status === 204) return new MessageError("Deletion failure: Response code " + request.status)
     }
 }
 

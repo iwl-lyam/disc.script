@@ -1,6 +1,6 @@
 {
   "name": "disc.script",
-  "version": "0.0.2-19",
+  "version": "0.0.2-32",
   "description": "The all-new Discord API wrapper for JavaScript.",
   "main": "index.js",
   "scripts": {

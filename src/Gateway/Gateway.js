@@ -35,7 +35,7 @@ class Gateway {
                                 this._guilds.push(new Guild(response.d))
                                 GatewayEvent.emit("guildCreate", this._guilds, this._guilds.length)
                             } else if (response.t === "MESSAGE_CREATE") {
-                                const message = new Message(response.d)
+                                const message = new Message(data=response.d)
                                 GatewayEvent.emit("message", message)
                             }
                         }
