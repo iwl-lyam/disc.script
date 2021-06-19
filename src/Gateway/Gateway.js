@@ -25,7 +25,10 @@ class Gateway {
                         }
                         if (response.op === 0) {
                             if (response.t === "READY") {
+                                process.env.READY = true
                                 GatewayEvent.emit("ready")
+                            } else if (response.t === "GUILD_CREATE") {
+                                
                             }
                         }
                         if (response.op === 10) {
