@@ -54,8 +54,16 @@ class Message {
         }).then(response => {
             if (!response.ok) throw new MessageError("Response was not OK: " + response.status)
         })
-        
-        
+    }
+    async react(emoji) {
+        fetch(`https://discord.com/api/v9/channels/${this.channel_id}/messages/${this.id}/reactions/${emoji}/@me`, {
+            method: "PUT",
+            headers: {
+                "Authorization": `Bot ${process.env.TOKEN}`
+            }
+        }).then(response => {
+            if (!response.ok) throw new MessageError("Response was not OK: " + response.status)
+        })
     }
 }
 

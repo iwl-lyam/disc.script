@@ -37,6 +37,8 @@ class Gateway {
                             } else if (response.t === "MESSAGE_CREATE") {
                                 const message = new Message(data=response.d)
                                 GatewayEvent.emit("message", message)
+                            } else if (response.t === "MESSAGE_DELETE") {
+                                GatewayEvent.emit("messageDelete", reponse.d.id, response.d.channel_id, response.d.guild_id)
                             }
                         }
                         if (response.op === 10) {
