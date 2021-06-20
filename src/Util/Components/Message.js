@@ -1,6 +1,7 @@
-const { MessageError } = require("../Actions/CreateMessage")
+const { MessageError, CreateMessage } = require("../Actions/CreateMessage")
 const events = require("events")
 const { default: fetch } = require("node-fetch")
+const punycode = require("punycode")
 
 const MessageEvent = new events.EventEmitter()
 
@@ -56,13 +57,15 @@ class Message {
         })
     }
     async react(emoji) {
+        emoji = emoji.codePointAt(0)
+        console.log(emoji)
         fetch(`https://discord.com/api/v9/channels/${this.channel_id}/messages/${this.id}/reactions/${emoji}/@me`, {
             method: "PUT",
             headers: {
                 "Authorization": `Bot ${process.env.TOKEN}`
             }
         }).then(response => {
-            if (!response.ok) throw new MessageError("Response was not OK: " + response.status)
+            if (!response.ok) throw new MessageError("Response was not OK: " + response.statusText)
         })
     }
 }

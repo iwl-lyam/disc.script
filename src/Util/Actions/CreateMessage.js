@@ -3,17 +3,26 @@ const emit = require("events")
 const { messageref, message } = require("../../payload.json")
 
 class CreateMessage {
-    constructor(content, cid, tts=false, ref=null) {
-        if (!content || !cid) throw new MessageError("Missing content/channel ID")
+    constructor(content, cid, data) {
+        if (!content || !cid || !data) throw new MessageError("Missing content/channel ID")
         this._content = content
         this._c = cid
-        this._tts = tts
-        this._ref = ref 
+        this._data = data
     }
     async send() {
         try {
-            let m = null
-            if (this._ref && this._tts) {
+            let m = {
+                content: null,
+                tts: false,
+                embeds: [],
+                allowed_mentions: null,
+                message_reference: null,
+                components: null,
+            }
+
+            m = JSON.stringify(m)
+
+            /*if (this._ref && this._tts) {
                 m = {
                     "content": this._content,
                     "tts": true,
@@ -39,7 +48,7 @@ class CreateMessage {
                     "tts": false
                 }
                 m = `{"content": "${this._content}", "tts": false}`
-            }
+            }*/
 
             console.log(m)
 
