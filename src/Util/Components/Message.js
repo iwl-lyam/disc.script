@@ -46,11 +46,16 @@ class Message {
         }
     }
     async delete() {
-        const request = await fetch(`https://discord.com/api/v9/channels/${this.channel_id}/messages/${this.id}`, {
+        fetch(`https://discord.com/api/v9/channels/${this.channel_id}/messages/${this.id}`, {
             method: "DELETE",
+            headers: {
+                "Authorization": `Bot ${process.env.TOKEN}`
+            }
+        }).then(response => {
+            if (!response.ok) throw new MessageError("Response was not OK: " + response.status)
         })
         
-        if (!request.status === 204) return new MessageError("Deletion failure: Response code " + request.status)
+        
     }
 }
 

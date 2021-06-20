@@ -1,13 +1,14 @@
 const Discord = require("disc.script")
 const gateway = new Discord.Gateway()
-gateway.start("ODQ2Nzg3MDM4MTg2ODMxOTE0.YK0l4g.cCWOEqnombSvvWIVJTDurb8ty4c")
+gateway.start("ODQ2Nzg3MDM4MTg2ODMxOTE0.YK0l4g.XFqyPY7P9XKV6GljZAdrtVMJIBA")
 
 Discord.Event.on("ready", async () => {
     console.log("ready")
 })
 
-Discord.Event.on("message", async message => {
+Discord.Event.on("message", message => {
     if (message.content === "Hello") {
-        setTimeout(() => message.delete(), 5000)
+        message.delete()
+        console.log("yes")
     }
 })
