@@ -27,7 +27,6 @@ class Gateway {
                             this._i = false
                         }
                         if (response.op === 0) {
-                            console.log(response)
                             if (response.t === "READY") {
                                 process.env.READY = true
                                 GatewayEvent.emit("ready")

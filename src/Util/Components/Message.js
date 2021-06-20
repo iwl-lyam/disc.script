@@ -2,6 +2,7 @@ const { MessageError, CreateMessage } = require("../Actions/CreateMessage")
 const events = require("events")
 const { default: fetch } = require("node-fetch")
 const punycode = require("punycode")
+const { Channel } = require("../Actions/CreateMessage")
 
 const MessageEvent = new events.EventEmitter()
 
@@ -44,6 +45,8 @@ class Message {
             }
             this.attatchments = data.attatchments
             this.guild_id = data.guild_id
+            this.channel = new Channel(this.id)
+            console.log("yes")
         }
     }
     async delete() {
